@@ -1,9 +1,6 @@
 var express = require("express")
-//var users = require("./usersDB")
 const app = express()
 
-
-//console.log(users)
 
 app.get('/', (req, res)=>{
     res.send('Hello world')
