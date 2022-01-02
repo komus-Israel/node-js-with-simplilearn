@@ -48,4 +48,13 @@ router.put('/update/:id', (req, res)=>{
     res.json({msg: 'invalid id'})
 })
 
+router.delete('/delete/:id', (req, res)=>{
+    const found = users.some(user => user.id === parseInt(req.params.id))
+
+    if (found) {
+        const user = users.filter(user => user.id === parseInt(req.params.id))
+
+    }
+})
+
 module.exports = router
