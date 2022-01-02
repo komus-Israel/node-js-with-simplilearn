@@ -31,10 +31,19 @@ router.post('/user/new', (req, res)=>{
    
 })
 
-router.get('/update/:id', (req, res)=>{
-    const user = users.filter(user => user.id === parseInt(req.params.id))
-    user[0].id = 10
+router.put('/update/:id', (req, res)=>{
+    const found = users.some(user => user.id === parseInt(req.params.id))
 
+    if ( found ) {
+        const user = users.filter(user => user.id === parseInt(req.params.id))
+        update = req.body
+
+        //user[0].id = update.id && update.id
+        user[0].name = update.name ? update.name : user[0].name
+        user[0].email = update.email ? update.email : user[0].email
+
+    }
+    
     res.json("success")
 })
 
