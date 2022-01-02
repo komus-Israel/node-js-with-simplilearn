@@ -52,9 +52,12 @@ router.delete('/delete/:id', (req, res)=>{
     const found = users.some(user => user.id === parseInt(req.params.id))
 
     if (found) {
-        const user = users.filter(user => user.id === parseInt(req.params.id))
+        users = users.filter(user => user.id != parseInt(req.params.id))
 
+        res.json({msg: 'user deleted'})
     }
+
+    res.json({msg: 'invalid user'})
 })
 
 module.exports = router
