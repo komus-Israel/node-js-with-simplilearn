@@ -42,9 +42,10 @@ router.put('/update/:id', (req, res)=>{
         user[0].name = update.name ? update.name : user[0].name
         user[0].email = update.email ? update.email : user[0].email
 
+        res.json({msg: 'user updated', user})
     }
     
-    res.json("success")
+    res.json({msg: 'invalid id'})
 })
 
 module.exports = router
